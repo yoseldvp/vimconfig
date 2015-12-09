@@ -77,6 +77,8 @@ set encoding=utf-8 nobomb
 set t_Co=256
 set title
 
+let mapleader=","
+
 " file types
 autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
 autocmd BufNewFile,BufRead *.hbs setfiletype handlebars syntax=html
@@ -94,8 +96,13 @@ hi Search cterm=NONE ctermfg=black ctermbg=yellow
 " airline config
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
+let g:airline#extensions#branch#enabled = 1
+let g:airline#extensions#branch#displayed_head_limit = 20
+
 
 autocmd Filetype java setlocal omnifunc=javacomplete#Complete
 autocmd Filetype java map <leader>b :call javacomplete#GoToDefinition()<CR>
 
 nmap <F8> :TagbarToggle<CR>
+
+
