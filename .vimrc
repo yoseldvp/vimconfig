@@ -22,7 +22,7 @@ Plugin 'majutsushi/tagbar'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
-let g:UltiSnipsSnippetDirectories=["UltiSnips", "snippets"]
+let g:UltiSnipsSnippetDirectories=["UltiSnips"]
 " vertical line indentation
 let g:indentLine_color_term = 239
 let g:indentLine_color_gui = '#09AA08'
@@ -30,10 +30,10 @@ let g:indentLine_char = '│'
 
 let delimitMate_expand_cr = 1
 
-nmap <leader>d :NERDTreeToggle<CR>
+nnoremap <C-T> :NERDTreeToggle<CR>
 
 " Use <leader>t to open ctrlp
-let g:ctrlp_map = '<leader>t'
+nnoremap <C-P> :CtrlP <CR>
 " Ignore these directories
 set wildignore+=*/build/**,*.class,*.zip,*.bin,*/target/**
 
@@ -77,8 +77,6 @@ set encoding=utf-8 nobomb
 set t_Co=256
 set title
 
-let mapleader=","
-
 " file types
 autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
 autocmd BufNewFile,BufRead *.hbs setfiletype handlebars syntax=html
@@ -105,4 +103,4 @@ autocmd Filetype java map <leader>b :call javacomplete#GoToDefinition()<CR>
 
 nmap <F8> :TagbarToggle<CR>
 
-
+let g:EclimCompletionMethod = 'omnifunc'
